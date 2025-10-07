@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Reflections - GE 10 Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #ffffff;
+    color: #003366;
+    min-height: 100vh;
+    background-image: none;
+}
+
+/* Header */
+.header {
+    background: #f0f8ff;
+    border-bottom: 2px solid #003366;
+    color: #003366;
+}
+
+/* Navigation */
+.nav-item {
+    position: relative;
+    transition: all 0.3s ease;
+    color: #003366;
+}
+
+.nav-item:hover {
+    color: #0055aa;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #0055aa;
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Text Highlight */
+.gold-text {
+    color: #0055aa;
+    text-shadow: none;
+}
+
+/* Page Content */
+.page-content {
+    background: #ffffff;
+    border: 1px solid #003366;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: #003366;
+    padding: 1rem;
+}
+
+/* Journal Entries */
+.journal-entry {
+    border-left: 3px solid #0055aa;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+}
+
+.journal-entry:hover {
+    background: #f0f8ff;
+    transform: translateX(5px);
+}
+
+/* Avatar */
+.avatar-container {
+    border: 3px solid #0055aa;
+    box-shadow: 0 0 10px rgba(0,85,170,0.2);
+}
+
+/* Icons */
+.divine-icon {
+    filter: none;
+}
+
+/* Buttons */
+.category-btn {
+    transition: all 0.3s ease;
+    border: 2px solid #0055aa; /* Thicker border for emphasis */
+    margin-bottom: 0.75rem; /* Increased margin for better spacing */
+    background: #ffffff;
+    color: #0055aa;
+    padding: 1rem 2rem; /* Increased padding for larger buttons */
+    font-size: 1.25rem; /* Larger text for better readability */
+    border-radius: 0.5rem; /* Rounded corners for a modern look */
+    min-width: 200px; /* Ensures buttons have a minimum width */
+    text-align: center; /* Centers the text */
+    display: inline-block; /* Allows buttons to sit next to each other */
+    cursor: pointer; /* Indicates the button is clickable */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.category-btn:hover {
+    background: #e6f2ff;
+    color: #003366;
+}
+
+.category-btn.active {
+    background: #0055aa;
+    color: #ffffff;
+    border-color: #003366;
+}
+
+
+
+/* Entry Container */
+.entry-container {
+    display: none;
+}
+
+.entry-container.active {
+    display: block;
+}
+
+/* Journal List */
+.journal-list {
+    margin-top: 1.5rem;
+}
+
+.journal-preview {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.journal-preview:hover {
+    background: #f0f8ff;
+}
+
+/* Journal Details */
+.journal-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: #f9f9f9;
+    margin-top: 0.5rem;
+    border: 1px solid #e0e0e0;
+}
+
+.journal-details.active {
+    max-height: 1000px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Detail Items */
+.detail-item {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed #003366;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #0055aa;
+    display: inline-block;
+    min-width: 100px;
+}
+
+/* Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.gallery-img {
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid #003366;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+/* Modal */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+}
+
+.image-modal img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: 4px solid #0055aa;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header sticky top-0 z-50 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                   <img src="images/pfp.jpg" class="divine-icon mr-3 rounded-full" style="width: 100px; height: 100px; object-fit: cover;">
+                    <h1 class="text-3xl font-bold gold-text font-cinzel">Rod Troy N. Gaudan</h1>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-lg">
+                    <a href="#home" class="nav-item">Home</a>
+                    <a href="#about" class="nav-item">About</a>
+                    <a href="#journal" class="nav-item">Journal</a>
+                    <a href="#advocacy" class="nav-item">Advocacy</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- Home Section -->
+        <section id="home" class="page-content rounded-lg p-8 mb-12">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="images/ucs.jpg" alt="Majestic golden cross against stormy sky with divine light breaking through clouds" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-6 gold-text">GE 10A(2018)-X (LEC) WPE (Whole Person Education)</h2>
+                    <p class="text-lg mb-6">
+                        A project crafted to explore the sacred dimensions of faith as experienced in the Church, Classroom, Court, Cultural, and Community settings.
+                    </p>
+                    <p class="text-lg">
+                        "For now we see in a mirror dimly, but then face to face. Now I know in part; then I shall know fully, even as I have been fully known." - 1 Corinthians 13:12
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page-content rounded-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold mb-8 gold-text border-b border-black pb-2">About the Author</h2>
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="avatar-container rounded-full overflow-hidden w-48 h-48">
+                        <img src="images/pfp.jpg" alt="The author in monastic robe holding ancient tome, standing before stained glass window" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-4 gold-text">Rod Troy N. Gaudan</h3>
+                    <p class="mb-4">
+                        I am someone who wants to learn more about truth, faith, and how they connect to everyday life. 
+                        I am a BSIT student, and I made this project for the subject GE 10 (Living in the IT Era) to share my spiritual journey.
+                    </p>
+                    <p class="mb-4">
+                        This project shows my visit to five special places where faith is practiced, tested, and celebrated in different ways.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        <div class="bg-gray-600 bg-opacity-50 px-4 py-2 rounded">
+                            <span class="block text-xs gold-text">Location</span>
+                            <span>Dumaguete City, Negros Oriental, Philippines</span>
+                        </div>
+                        <div class="bg-gray-600 bg-opacity-50 px-4 py-2 rounded">
+                            <span class="block text-xs gold-text">Institution</span>
+                            <span>Silliman University</span>
+                        </div>
+                        <div class="bg-gray-600 bg-opacity-50 px-4 py-2 rounded">
+                            <span class="block text-xs gold-text">Course</span>
+                            <span>Bachelor of Science in Information Technology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updated Journal Section -->
+        <section id="journal" class="page-content rounded-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold mb-8 gold-text border-b border-black pb-2">Journal Entries</h2>
+            
+            <!-- Category Selector Buttons -->
+            <div class="flex flex-wrap gap-4 mb-8">
+               <button onclick="showCategory(this, 'church')" class="category-btn active px-6 py-3 rounded flex items-center gap-2">
+    <img src="https://placehold.co/24x24/333/ccc/?icon=church" alt="Church icon"> Church
+</button>
+<button onclick="showCategory(this, 'classroom')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
+    <img src="https://placehold.co/24x24/333/ccc/?icon=book" alt="Classroom icon"> Classroom
+</button>
+<button onclick="showCategory(this, 'court')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
+    <img src="https://placehold.co/24x24/333/ccc/?icon=balance" alt="Court icon"> Court
+</button>
+<button onclick="showCategory(this, 'cultural')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
+    <img src="https://placehold.co/24x24/333/ccc/?icon=art" alt="Cultural icon"> Cultural
+</button>
+<button onclick="showCategory(this, 'community')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
+    <img src="https://placehold.co/24x24/333/ccc/?icon=group" alt="Community icon"> Community
+</button>
+            </div>
+
+            <!-- Church Journal Container -->
+            <div id="church-container" class="entry-container active">
+                <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Church Journal Entries</h3>
+                
+                <div class="journal-list">
+                    <!-- Church Entry 1 -->
+                    <div class="journal-preview" onclick="toggleDetails('church1')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Sunday Mass Reflection</h4>
+                                <p class="text-sm text-gray-400">Pentecost Sunday Celebration</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">May 28, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="church1" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Church</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>Manila Cathedral</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Cathedral+Exterior" alt="Manila Cathedral exterior with red Pentecost decorations" class="gallery-img">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Mass+Celebration" alt="Priest elevating host during Pentecost Mass" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Mass Bulletin</a>
+                                <span class="text-gray-500">|</span>
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Receipt</a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                The Pentecost Mass was a powerful experience. The red vestments and decorations reminded me of the Holy Spirit's fire. 
+                                The homily emphasized how the Spirit empowers us to spread Christ's message courageously. 
+                                I reflected on how I can be more open to the Spirit's guidance in my daily life.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Church Entry 2 -->
+                    <div class="journal-preview" onclick="toggleDetails('church2')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Sacrament of Reconciliation</h4>
+                                <p class="text-sm text-gray-400">First Confession After Years</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">June 15, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="church2" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Church</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>UST Parish</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Confessional" alt="Confessional booth at UST Parish" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <a href="#" class="text-amber-500 hover:underline text-sm">Penance Prayer Card</a>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                Returning to confession after many years was both intimidating and liberating. 
+                                The priest's compassion reminded me of God's infinite mercy. 
+                                I felt spiritual renewal and strength to avoid my confessed sins, 
+                                and this experience deepened my understanding of the sacrament's healing power.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			 <!-- Church Entry 3 -->
+                    <div class="journal-preview" onclick="toggleDetails('church3')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Sacrament of Reconciliation</h4>
+                                <p class="text-sm text-gray-400">First Confession After Years</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">June 15, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="church3" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Church</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>UST Parish</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Confessional" alt="Confessional booth at UST Parish" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <p>Penance Prayer Card</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                Returning to confession after many years was both intimidating and liberating. 
+                                The priest's compassion reminded me of God's infinite mercy. 
+                                I felt spiritual renewal and strength to avoid my confessed sins, 
+                                and this experience deepened my understanding of the sacrament's healing power.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classroom Journal Container -->
+            <div id="classroom-container" class="entry-container">
+                <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Classroom Journal Entries</h3>
+                
+                <div class="journal-list">
+                    <!-- Classroom Entry 1 -->
+                    <div class="journal-preview" onclick="toggleDetails('class1')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Biblical Exegesis Lecture</h4>
+                                <p class="text-sm text-gray-400">Gospels Analysis</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">February 15, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="class1" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Classroom</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>GE 10 Theology Department</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Lecture&font=cinzel" alt="Professor explaining gospel passages in classroom setting" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Lecture Notes</a>
+                                <span class="text-gray-500">|</span>
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Reading Materials</a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                Learning about historical-critical methods for interpreting scripture has transformed my Bible reading. 
+                                Understanding the cultural contexts of Gospel passages helped me appreciate their deeper meanings. 
+                                I realize now how my previous literal interpretations often missed the richer theological messages.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Classroom Entry 2 -->
+                    <div class="journal-preview" onclick="toggleDetails('class2')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Interfaith Dialogue Seminar</h4>
+                                <p class="text-sm text-gray-400">Christian-Muslim Relations</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">March 20, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="class2" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Classroom</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>UST Center for Religious Dialogue</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Dialogue&font=cinzel" alt="Christian and Muslim students in respectful discussion" class="gallery-img">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Group+Activity" alt="Participants working on interfaith activity" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Seminar Certificate</a>
+                                <span class="text-gray-500">|</span>
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Handout</a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                This seminar challenged many of my assumptions about Islam. 
+                                Discovering our shared Abrahamic roots and similar values about social justice was eye-opening. 
+                                I've realized interfaith dialogue doesn't mean compromising my faith but rather 
+                                understanding others while deepening my own Christian identity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Court Journal Container -->
+            <div id="court-container" class="entry-container">
+                <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Court Journal Entries</h3>
+                
+                <div class="journal-list">
+                    <!-- Court Entry 1 -->
+                    <div class="journal-preview" onclick="toggleDetails('court1')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Religious Freedom Case</h4>
+                                <p class="text-sm text-gray-400">Supreme Court Visit</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">April 5, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="court1" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Court</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>Philippine Supreme Court</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Courtroom" alt="Supreme Court session hearing ethical case" class="gallery-img">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Justices" alt="Supreme Court justices in session" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Visitor Pass</a>
+                                <span class="text-gray-500">|</span>
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Case Notes</a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                Observing how the court balances religious freedom with other constitutional rights 
+                                was intellectually stimulating. The justices' nuanced questions showed how complex these cases are. 
+                                I better understand now why absolute positions are difficult in a pluralistic society, 
+                                yet certain fundamental freedoms must be protected.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Court Entry 2 -->
+                    <div class="journal-preview" onclick="toggleDetails('court2')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Ethics in Legal Profession</h4>
+                                <p class="text-sm text-gray-400">Guest Speaker Event</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">May 12, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="court2" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Court</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>UST Faculty of Civil Law</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Speaker" alt="Distinguished judge speaking about legal ethics" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <a href="#" class="text-amber-500 hover:underline text-sm">Event Program</a>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                The judge's emphasis on conscience formation for lawyers resonated deeply. 
+                                His stories showed how Christian values can inform legal practice without imposing them unfairly. 
+                                I reflected on how all professions need ethical foundations - 
+                                legalistic compliance isn't enough without personal moral development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Cultural Journal Container -->
+<div id="cultural-container" class="entry-container">
+    <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Cultural Journal Entries</h3>
+    
+    <div class="journal-list"> <!-- ✅ Opening wrapper added -->
+
+        <!-- Cultural Entry 1 -->
+        <div class="journal-preview" onclick="toggleDetails('cult1')">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="text-xl font-semibold gold-text">Religious Art Exhibit</h4>
+                    <p class="text-sm text-gray-400">"Sacred Images Through Ages"</p>
+                </div>
+                <span class="text-gray-400 text-sm">January 22, 2023</span>
+            </div>
+        </div>
+
+        <div id="cult1" class="journal-details">
+            <div class="detail-item">
+                <span class="detail-label">Category:</span>
+                <span>Cultural</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Organizer:</span>
+                <span>National Museum of Fine Arts</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Pictures:</span>
+                <div class="photo-gallery">
+                    <img src="https://placehold.co/400x300/222/ccc/?text=Art+Exhibit" alt="17th century Santo Entierro sculpture displayed at museum" class="gallery-img">
+                    <img src="https://placehold.co/400x300/222/ccc/?text=Gallery+View" alt="Visitors viewing religious artworks in museum gallery" class="gallery-img">
+                    <img src="https://placehold.co/400x300/222/ccc/?text=Detail+Shot" alt="Close-up of intricate ivory carving on religious statue" class="gallery-img">
+                </div>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Evidence:</span>
+                <div class="flex items-center gap-2 mt-2">
+                    <span class="text-gray-500 italic">No evidence uploaded</span>
+                </div>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Reflection:</span>
+                <p class="mt-1 text-justify">
+                    Visiting the religious art exhibit helped me connect visually and emotionally to the faith expressions of past generations. 
+                    The craftsmanship, symbolism, and reverence in the artwork deepened my appreciation of our shared Christian heritage. 
+                    I was especially struck by how art can be a form of worship and catechesis.
+                </p>
+            </div>
+        </div>
+
+    </div> <!-- ✅ Close .journal-list -->
+</div> <!-- ✅ Close #cultural-container -->
+
+
+
+            <!-- Community Journal Container -->
+            <div id="community-container" class="entry-container">
+                <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Community Journal Entries</h3>
+                
+                <div class="journal-list">
+                    <!-- Community Entry 1 -->
+                    <div class="journal-preview" onclick="toggleDetails('comm1')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Volunteering Experience</h4>
+                                <p class="text-sm text-gray-400">Feeding Program</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">January 15, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="comm1" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Community</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>Caritas Manila</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Feeding+Program" alt="Volunteers serving meals to children" class="gallery-img">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Volunteers" alt="Group of volunteers preparing food packages" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Certificate</a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                Serving meals to underprivileged families made me realize how privileged I am and how much more I could be doing to help others. 
+                                The gratitude from the children was incredibly humbling. This experience showed me the real impact of living out Christ's command 
+                                to love our neighbors through concrete actions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Community Entry 2 -->
+                    <div class="journal-preview" onclick="toggleDetails('comm2')">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold gold-text">Community Rosary</h4>
+                                <p class="text-sm text-gray-400">Block Rosary Group</p>
+                            </div>
+                            <span class="text-gray-400 text-sm">February 15, 2023</span>
+                        </div>
+                    </div>
+                    
+                    <div id="comm2" class="journal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span>Community</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Organizer:</span>
+                            <span>Barangay San Miguel</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pictures:</span>
+                            <div class="photo-gallery">
+                                <img src="https://placehold.co/400x300/222/ccc/?text=Rosary+Group" alt="Community members praying the rosary together" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Evidence:</span>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#" class="text-amber-500 hover:underline text-sm">Prayer Booklet</a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Reflection:</span>
+                            <p class="mt-1 text-justify">
+                                Praying the rosary with neighbors strengthened my sense of community fellowship. 
+                                Seeing people from different generations come together in prayer reminded me of the universality of our faith. 
+                                The conversations after the rosary helped me understand my neighbors' spiritual journeys and struggles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advocacy Section -->
+        <section id="advocacy" class="page-content rounded-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold mb-8 gold-text border-b border-black pb-2">Sacred Advocacy</h2>
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/222/ccc/?text=Advocacy&font=cinzel" alt="Hands forming a heart shape around a glowing cross, symbolizing faith-based service" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-600 bg-opacity-20 rounded-lg p-6 border border-black">
+                        <h3 class="text-2xl font-bold mb-4 gold-text">Faith in Action Initiative</h3>
+                        <p class="mb-4">
+                            Our sacred advocacy focuses on bridging spiritual principles with practical community service.
+                        </p>
+                        <p class="mb-6">
+                            "Faith by itself, if it is not accompanied by action, is dead." - James 2:17
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="bg-gray-600 bg-opacity-30 px-4 py-2 rounded-md">
+                                <span class="	">Status</span>
+                                <span>Coming Soon</span>
+                            </div>
+                            <div class="bg-gray-600 bg-opacity-30 px-4 py-2 rounded-md">
+                                <span class="block text-xs gold-text">Discussion</span>
+                                <span>Midterm Period</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<script>
+    // Journal category selection
+    function showCategory(button, category) {
+        document.querySelectorAll('.entry-container').forEach(container => {
+            container.classList.remove('active');
+        });
+        document.getElementById(`${category}-container`).classList.add('active');
+
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        button.classList.add('active');
+
+        document.querySelectorAll('.journal-details').forEach(detail => {
+            detail.classList.remove('active');
+        });
+    }
+
+    // Journal entry details toggle
+    function toggleDetails(id) {
+        const details = document.getElementById(id);
+        details.classList.toggle('active');
+        details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // ✅ Zoom image on click (enhanced for full zoom)
+    window.onload = function () {
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', function () {
+                const modal = document.getElementById('imageZoomModal');
+                const zoomed = document.getElementById('zoomedImage');
+                zoomed.src = this.src;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            });
+        });
+
+        // ✅ ESC to close modal
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+    };
+
+    // Close zoom modal
+    function closeImageModal() {
+        document.getElementById('imageZoomModal').style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable scroll
+    }
+</script>
+
+
+
+<div id="imageZoomModal" class="image-modal" onclick="closeImageModal()">
+    <img id="zoomedImage" alt="Zoomed Image" />
+</div>
+
+</body>
+</html>
