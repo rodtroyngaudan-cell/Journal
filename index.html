@@ -220,13 +220,13 @@ body {
 }
 </style>
 </head>
-<body>
+<body> 
     <!-- Header with Navigation -->
     <header class="header sticky top-0 z-50 py-4">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center mb-4 md:mb-0">
-                   <img src="pfp.jpg" class="divine-icon mr-3 rounded-full" style="width: 100px; height: 100px; object-fit: cover;">
+                    <img src="pfp.jpg" class="divine-icon mr-3 rounded-full" style="width: 100px; height: 100px; object-fit: cover;">
                     <h1 class="text-3xl font-bold gold-text font-cinzel">Rod Troy N. Gaudan</h1>
                 </div>
                 <nav class="flex flex-wrap justify-center gap-6 text-lg">
@@ -244,7 +244,7 @@ body {
         <section id="home" class="page-content rounded-lg p-8 mb-12">
             <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="md:w-1/2">
-                    <img src="ucs.jpg" alt="Majestic golden cross against stormy sky with divine light breaking through clouds" class="rounded-lg shadow-xl w-full">
+                    <img src="ucs.jpg" alt="Majestic golden cross against stormy sky" class="rounded-lg shadow-xl w-full">
                 </div>
                 <div class="md:w-1/2">
                     <h2 class="text-4xl font-bold mb-6 gold-text">GE 10A(2018)-X (LEC) WPE (Whole Person Education)</h2>
@@ -264,7 +264,7 @@ body {
             <div class="flex flex-col md:flex-row gap-8 items-center">
                 <div class="md:w-1/3 flex justify-center">
                     <div class="avatar-container rounded-full overflow-hidden w-48 h-48">
-                        <img src="pfp.jpg" alt="The author in monastic robe holding ancient tome, standing before stained glass window" class="w-full h-full object-cover">
+                        <img src="pfp.jpg" alt="Author photo" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <div class="md:w-2/3">
@@ -294,503 +294,906 @@ body {
             </div>
         </section>
 
-        <!-- Updated Journal Section -->
+        <!-- Journal Section -->
         <section id="journal" class="page-content rounded-lg p-8 mb-12">
             <h2 class="text-3xl font-bold mb-8 gold-text border-b border-black pb-2">Journal Entries</h2>
             
-            <!-- Category Selector Buttons -->
+            <!-- Category Buttons -->
             <div class="flex flex-wrap gap-4 mb-8">
-               <button onclick="showCategory(this, 'church')" class="category-btn active px-6 py-3 rounded flex items-center gap-2">
-    <img src="https://placehold.co/24x24/333/ccc/?icon=church" alt="Church icon"> Church
-</button>
-<button onclick="showCategory(this, 'classroom')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
-    <img src="https://placehold.co/24x24/333/ccc/?icon=book" alt="Classroom icon"> Classroom
-</button>
-<button onclick="showCategory(this, 'court')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
-    <img src="https://placehold.co/24x24/333/ccc/?icon=balance" alt="Court icon"> Court
-</button>
-<button onclick="showCategory(this, 'cultural')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
-    <img src="https://placehold.co/24x24/333/ccc/?icon=art" alt="Cultural icon"> Cultural
-</button>
-<button onclick="showCategory(this, 'community')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
-    <img src="https://placehold.co/24x24/333/ccc/?icon=group" alt="Community icon"> Community
-</button>
+                <button onclick="showCategory(this, 'church')" class="category-btn active px-6 py-3 rounded flex items-center gap-2">
+                    <img src="https://placehold.co/24x24/333/ccc/?icon=church" alt=""> Church
+                </button>
+                <button onclick="showCategory(this, 'classroom')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
+                    <img src="https://placehold.co/24x24/333/ccc/?icon=book" alt=""> Classroom
+                </button>
+                <button onclick="showCategory(this, 'court')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
+                    <img src="https://placehold.co/24x24/333/ccc/?icon=balance" alt=""> Court
+                </button>
+                <button onclick="showCategory(this, 'cultural')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
+                    <img src="https://placehold.co/24x24/333/ccc/?icon=art" alt=""> Cultural
+                </button>
+                <button onclick="showCategory(this, 'community')" class="category-btn px-6 py-3 rounded flex items-center gap-2">
+                    <img src="https://placehold.co/24x24/333/ccc/?icon=group" alt=""> Community
+                </button>
             </div>
 
-            <!-- Church Journal Container -->
-            <div id="church-container" class="entry-container active">
-                <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Church Journal Entries</h3>
-                
-                <div class="journal-list">
-                    <!-- Church Entry 1 -->
-                    <div class="journal-preview" onclick="toggleDetails('church1')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Sunday Mass Reflection</h4>
-                                <p class="text-sm text-gray-400">Pentecost Sunday Celebration</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">May 28, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="church1" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Church</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>Manila Cathedral</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Cathedral+Exterior" alt="Manila Cathedral exterior with red Pentecost decorations" class="gallery-img">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Mass+Celebration" alt="Priest elevating host during Pentecost Mass" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <div class="flex items-center gap-2 mt-2">
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Mass Bulletin</a>
-                                <span class="text-gray-500">|</span>
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Receipt</a>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                The Pentecost Mass was a powerful experience. The red vestments and decorations reminded me of the Holy Spirit's fire. 
-                                The homily emphasized how the Spirit empowers us to spread Christ's message courageously. 
-                                I reflected on how I can be more open to the Spirit's guidance in my daily life.
-                            </p>
-                        </div>
-                    </div>
+<!-- ✅ Church Container (fixed structure) -->
+<div id="church-container" class="entry-container active">
+    <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Church Journal Entries</h3>
 
-                    <!-- Church Entry 2 -->
-                    <div class="journal-preview" onclick="toggleDetails('church2')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Sacrament of Reconciliation</h4>
-                                <p class="text-sm text-gray-400">First Confession After Years</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">June 15, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="church2" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Church</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>UST Parish</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Confessional" alt="Confessional booth at UST Parish" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <a href="#" class="text-amber-500 hover:underline text-sm">Penance Prayer Card</a>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                Returning to confession after many years was both intimidating and liberating. 
-                                The priest's compassion reminded me of God's infinite mercy. 
-                                I felt spiritual renewal and strength to avoid my confessed sins, 
-                                and this experience deepened my understanding of the sacrament's healing power.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-			
-			 <!-- Church Entry 3 -->
-                    <div class="journal-preview" onclick="toggleDetails('church3')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Sacrament of Reconciliation</h4>
-                                <p class="text-sm text-gray-400">First Confession After Years</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">June 15, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="church3" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Church</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>UST Parish</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Confessional" alt="Confessional booth at UST Parish" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <p>Penance Prayer Card</p>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                Returning to confession after many years was both intimidating and liberating. 
-                                The priest's compassion reminded me of God's infinite mercy. 
-                                I felt spiritual renewal and strength to avoid my confessed sins, 
-                                and this experience deepened my understanding of the sacrament's healing power.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="journal-list">
 
-            <!-- Classroom Journal Container -->
-            <div id="classroom-container" class="entry-container">
-                <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Classroom Journal Entries</h3>
-                
-                <div class="journal-list">
-                    <!-- Classroom Entry 1 -->
-                    <div class="journal-preview" onclick="toggleDetails('class1')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Biblical Exegesis Lecture</h4>
-                                <p class="text-sm text-gray-400">Gospels Analysis</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">February 15, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="class1" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Classroom</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>GE 10 Theology Department</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Lecture&font=cinzel" alt="Professor explaining gospel passages in classroom setting" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <div class="flex items-center gap-2 mt-2">
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Lecture Notes</a>
-                                <span class="text-gray-500">|</span>
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Reading Materials</a>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                Learning about historical-critical methods for interpreting scripture has transformed my Bible reading. 
-                                Understanding the cultural contexts of Gospel passages helped me appreciate their deeper meanings. 
-                                I realize now how my previous literal interpretations often missed the richer theological messages.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Classroom Entry 2 -->
-                    <div class="journal-preview" onclick="toggleDetails('class2')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Interfaith Dialogue Seminar</h4>
-                                <p class="text-sm text-gray-400">Christian-Muslim Relations</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">March 20, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="class2" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Classroom</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>UST Center for Religious Dialogue</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Dialogue&font=cinzel" alt="Christian and Muslim students in respectful discussion" class="gallery-img">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Group+Activity" alt="Participants working on interfaith activity" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <div class="flex items-center gap-2 mt-2">
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Seminar Certificate</a>
-                                <span class="text-gray-500">|</span>
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Handout</a>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                This seminar challenged many of my assumptions about Islam. 
-                                Discovering our shared Abrahamic roots and similar values about social justice was eye-opening. 
-                                I've realized interfaith dialogue doesn't mean compromising my faith but rather 
-                                understanding others while deepening my own Christian identity.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Court Journal Container -->
-            <div id="court-container" class="entry-container">
-                <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Court Journal Entries</h3>
-                
-                <div class="journal-list">
-                    <!-- Court Entry 1 -->
-                    <div class="journal-preview" onclick="toggleDetails('court1')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Religious Freedom Case</h4>
-                                <p class="text-sm text-gray-400">Supreme Court Visit</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">April 5, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="court1" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Court</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>Philippine Supreme Court</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Courtroom" alt="Supreme Court session hearing ethical case" class="gallery-img">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Justices" alt="Supreme Court justices in session" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <div class="flex items-center gap-2 mt-2">
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Visitor Pass</a>
-                                <span class="text-gray-500">|</span>
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Case Notes</a>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                Observing how the court balances religious freedom with other constitutional rights 
-                                was intellectually stimulating. The justices' nuanced questions showed how complex these cases are. 
-                                I better understand now why absolute positions are difficult in a pluralistic society, 
-                                yet certain fundamental freedoms must be protected.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Court Entry 2 -->
-                    <div class="journal-preview" onclick="toggleDetails('court2')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Ethics in Legal Profession</h4>
-                                <p class="text-sm text-gray-400">Guest Speaker Event</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">May 12, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="court2" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Court</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>UST Faculty of Civil Law</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Speaker" alt="Distinguished judge speaking about legal ethics" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <a href="#" class="text-amber-500 hover:underline text-sm">Event Program</a>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                The judge's emphasis on conscience formation for lawyers resonated deeply. 
-                                His stories showed how Christian values can inform legal practice without imposing them unfairly. 
-                                I reflected on how all professions need ethical foundations - 
-                                legalistic compliance isn't enough without personal moral development.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Cultural Journal Container -->
-<div id="cultural-container" class="entry-container">
-    <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Cultural Journal Entries</h3>
-    
-    <div class="journal-list"> <!-- ✅ Opening wrapper added -->
-
-        <!-- Cultural Entry 1 -->
-        <div class="journal-preview" onclick="toggleDetails('cult1')">
+        <!-- Church Entry 1 -->
+        <div class="journal-preview" onclick="toggleDetails('church1')">
             <div class="flex justify-between items-center">
                 <div>
-                    <h4 class="text-xl font-semibold gold-text">Religious Art Exhibit</h4>
-                    <p class="text-sm text-gray-400">"Sacred Images Through Ages"</p>
+                    <h4 class="text-xl font-semibold gold-text">All-Colleges Midweek</h4>
+                    <p class="text-sm text-gray-400">October 1, 2025</p>
                 </div>
-                <span class="text-gray-400 text-sm">January 22, 2023</span>
+                <span class="text-gray-400 text-sm">6:30-7:30 PM</span>
             </div>
         </div>
-
-        <div id="cult1" class="journal-details">
-            <div class="detail-item">
-                <span class="detail-label">Category:</span>
-                <span>Cultural</span>
-            </div>
-            <div class="detail-item">
-                <span class="detail-label">Organizer:</span>
-                <span>National Museum of Fine Arts</span>
-            </div>
+        <div id="church1" class="journal-details">
+            <div class="detail-item"><span class="detail-label">Category:</span> Church</div>
+            <div class="detail-item"><span class="detail-label">Organizer:</span> Dr. Giovanni T. Macahig</div>
             <div class="detail-item">
                 <span class="detail-label">Pictures:</span>
                 <div class="photo-gallery">
-                    <img src="https://placehold.co/400x300/222/ccc/?text=Art+Exhibit" alt="17th century Santo Entierro sculpture displayed at museum" class="gallery-img">
-                    <img src="https://placehold.co/400x300/222/ccc/?text=Gallery+View" alt="Visitors viewing religious artworks in museum gallery" class="gallery-img">
-                    <img src="https://placehold.co/400x300/222/ccc/?text=Detail+Shot" alt="Close-up of intricate ivory carving on religious statue" class="gallery-img">
+                    <img src="church/church1.jpg" class="gallery-img">
+                    <img src="church/church2.jfif" class="gallery-img">
                 </div>
             </div>
-            <div class="detail-item">
-                <span class="detail-label">Evidence:</span>
-                <div class="flex items-center gap-2 mt-2">
-                    <span class="text-gray-500 italic">No evidence uploaded</span>
-                </div>
-            </div>
-            <div class="detail-item">
-                <span class="detail-label">Reflection:</span>
-                <p class="mt-1 text-justify">
-                    Visiting the religious art exhibit helped me connect visually and emotionally to the faith expressions of past generations. 
-                    The craftsmanship, symbolism, and reverence in the artwork deepened my appreciation of our shared Christian heritage. 
-                    I was especially struck by how art can be a form of worship and catechesis.
-                </p>
+            <div class="detail-item"><span class="detail-label">Reflection:</span>
+                <p>Attending the All-Colleges Midweek reminded me of the importance of pausing amidst my busy schedule to reconnect with God and my community. The message encouraged me to trust in His plans and to stay grounded in faith while pursuing excellence in my studies.</p>
             </div>
         </div>
 
-    </div> <!-- ✅ Close .journal-list -->
-</div> <!-- ✅ Close #cultural-container -->
-
-
-
-            <!-- Community Journal Container -->
-            <div id="community-container" class="entry-container">
-                <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Community Journal Entries</h3>
-                
-                <div class="journal-list">
-                    <!-- Community Entry 1 -->
-                    <div class="journal-preview" onclick="toggleDetails('comm1')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Volunteering Experience</h4>
-                                <p class="text-sm text-gray-400">Feeding Program</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">January 15, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="comm1" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Community</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>Caritas Manila</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Feeding+Program" alt="Volunteers serving meals to children" class="gallery-img">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Volunteers" alt="Group of volunteers preparing food packages" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <div class="flex items-center gap-2 mt-2">
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Certificate</a>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                Serving meals to underprivileged families made me realize how privileged I am and how much more I could be doing to help others. 
-                                The gratitude from the children was incredibly humbling. This experience showed me the real impact of living out Christ's command 
-                                to love our neighbors through concrete actions.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Community Entry 2 -->
-                    <div class="journal-preview" onclick="toggleDetails('comm2')">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-semibold gold-text">Community Rosary</h4>
-                                <p class="text-sm text-gray-400">Block Rosary Group</p>
-                            </div>
-                            <span class="text-gray-400 text-sm">February 15, 2023</span>
-                        </div>
-                    </div>
-                    
-                    <div id="comm2" class="journal-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Category:</span>
-                            <span>Community</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Organizer:</span>
-                            <span>Barangay San Miguel</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Pictures:</span>
-                            <div class="photo-gallery">
-                                <img src="https://placehold.co/400x300/222/ccc/?text=Rosary+Group" alt="Community members praying the rosary together" class="gallery-img">
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Evidence:</span>
-                            <div class="flex items-center gap-2 mt-2">
-                                <a href="#" class="text-amber-500 hover:underline text-sm">Prayer Booklet</a>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reflection:</span>
-                            <p class="mt-1 text-justify">
-                                Praying the rosary with neighbors strengthened my sense of community fellowship. 
-                                Seeing people from different generations come together in prayer reminded me of the universality of our faith. 
-                                The conversations after the rosary helped me understand my neighbors' spiritual journeys and struggles.
-                            </p>
-                        </div>
-                    </div>
+        <!-- Church Entry 2 -->
+        <div class="journal-preview" onclick="toggleDetails('church2')">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="text-xl font-semibold gold-text">Galilean Fellowship</h4>
+                    <p class="text-sm text-gray-400">October 9, 2025</p>
+                </div>
+                <span class="text-gray-400 text-sm">5:30 PM</span>
+            </div>
+        </div>
+        <div id="church2" class="journal-details">
+            <div class="detail-item"><span class="detail-label">Category:</span> Church</div>
+            <div class="detail-item"><span class="detail-label">Organizer:</span> USLC/Facilitators</div>
+            <div class="detail-item">
+                <span class="detail-label">Pictures:</span>
+                <div class="photo-gallery">
+                    <img src="church/church3.jfif" class="gallery-img">
+                    <img src="church/church4.jfif" class="gallery-img">
+                    <img src="church/church5.jfif" class="gallery-img">
                 </div>
             </div>
+            <div class="detail-item"><span class="detail-label">Reflection:</span>
+                <p>The Galilean Fellowship was a heartwarming experience where I felt a deep sense of belonging and peace. Sharing in worship and listening to inspiring reflections helped strengthen my faith and reminded me of the value of spiritual fellowship.</p>
+            </div>
+        </div>
+
+        <!-- Church Entry 3 -->
+        <div class="journal-preview" onclick="toggleDetails('church3')">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="text-xl font-semibold gold-text">Heartland Academy - 37th Founding Anniversary</h4>
+                    <p class="text-sm text-gray-400">October 19, 2025</p>
+                </div>
+                <span class="text-gray-400 text-sm">5:00 PM</span>
+            </div>
+        </div>
+        <div id="church3" class="journal-details">
+            <div class="detail-item"><span class="detail-label">Category:</span> Church</div>
+            <div class="detail-item"><span class="detail-label">Organizer:</span> Heartland Academy of Dumaguete, Inc.</div>
+            <div class="detail-item">
+                <span class="detail-label">Pictures:</span>
+                <div class="photo-gallery">
+                    <img src="church/church6.jpg" class="gallery-img">
+                    <img src="church/church7.jpg" class="gallery-img">
+                </div>
+            </div>
+            <div class="detail-item"><span class="detail-label">Reflection:</span>
+                <p>Witnessing Heartland Academy’s celebration of its 37th year showed me how God’s faithfulness sustains communities over time. It inspired me to reflect on how dedication and prayer can build strong, God-centered institutions.</p>
+            </div>
+        </div>
+
+        <!-- Church Entry 4 -->
+        <div class="journal-preview" onclick="toggleDetails('church4')">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="text-xl font-semibold gold-text">29th Anniversary of Provider Ministries</h4>
+                    <p class="text-sm text-gray-400">October 26, 2025</p>
+                </div>
+                <span class="text-gray-400 text-sm">4:30 PM</span>
+            </div>
+        </div>
+        <div id="church4" class="journal-details">
+            <div class="detail-item"><span class="detail-label">Category:</span> Church</div>
+            <div class="detail-item"><span class="detail-label">Organizer:</span> Provider Ministries Fellowship Intl.</div>
+            <div class="detail-item">
+                <span class="detail-label">Pictures:</span>
+                <div class="photo-gallery">
+                    <img src="church/church8.jpg" class="gallery-img">
+                    <img src="church/church9.jpg" class="gallery-img">
+                </div>
+            </div>
+            <div class="detail-item"><span class="detail-label">Reflection:</span>
+                <p>The Provider Ministries’ anniversary celebration was uplifting, as it emphasized serving others with compassion and humility. It reminded me that spiritual growth often happens through acts of kindness and faith-driven service.</p>
+            </div>
+        </div>
+
+        <!-- Church Entry 5 -->
+        <div class="journal-preview" onclick="toggleDetails('church5')">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="text-xl font-semibold gold-text">St. Catherine of Alexandria Sunday Mass</h4>
+                    <p class="text-sm text-gray-400">September 21, 2025</p>
+                </div>
+                <span class="text-gray-400 text-sm">5:00-6:00 AM</span>
+            </div>
+        </div>
+        <div id="church5" class="journal-details">
+            <div class="detail-item"><span class="detail-label">Category:</span> Church</div>
+            <div class="detail-item"><span class="detail-label">Organizer:</span> Parish of St. Catherine of Alexandria Cathedral</div>
+            <div class="detail-item">
+                <span class="detail-label">Pictures:</span>
+                <div class="photo-gallery">
+                    <img src="church/church10.jpg" class="gallery-img">
+                    <img src="church/church11.jpg" class="gallery-img">
+                </div>
+            </div>
+            <div class="detail-item"><span class="detail-label">Reflection:</span>
+                <p>Attending the early Sunday Mass on September 21 reminded me of the peace that comes from starting the day with prayer and worship. The homily encouraged me to trust God’s timing and be thankful for every blessing. It was a quiet and meaningful hour that strengthened my faith and prepared me for the week ahead.</p>
+            </div>
+        </div>
+
+        <!-- Church Entry 6 -->
+        <div class="journal-preview" onclick="toggleDetails('church6')">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="text-xl font-semibold gold-text">St. Catherine of Alexandria Sunday Mass</h4>
+                    <p class="text-sm text-gray-400">September 28, 2025</p>
+                </div>
+                <span class="text-gray-400 text-sm">5:00-6:00 AM</span>
+            </div>
+        </div>
+        <div id="church6" class="journal-details">
+            <div class="detail-item"><span class="detail-label">Category:</span> Church</div>
+            <div class="detail-item"><span class="detail-label">Organizer:</span> Parish of St. Catherine of Alexandria Cathedral</div>
+            <div class="detail-item">
+                <span class="detail-label">Pictures:</span>
+                <div class="photo-gallery">
+                    <img src="church/church12.jpg" class="gallery-img">
+                    <img src="church/church13.jpg" class="gallery-img">
+                </div>
+            </div>
+            <div class="detail-item"><span class="detail-label">Reflection:</span>
+                <p>During the September 28 Mass, I reflected on how important it is to remain steadfast in faith even during challenges. The readings spoke about perseverance, and I felt God’s gentle reminder to stay strong and patient. The experience helped me reconnect with my purpose and find comfort in His word.</p>
+            </div>
+        </div>
+
+        <!-- Church Entry 7 -->
+        <div class="journal-preview" onclick="toggleDetails('church7')">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="text-xl font-semibold gold-text">St. Catherine of Alexandria Sunday Mass</h4>
+                    <p class="text-sm text-gray-400">October 5, 2025</p>
+                </div>
+                <span class="text-gray-400 text-sm">5:00-6:00 AM</span>
+            </div>
+        </div>
+        <div id="church7" class="journal-details">
+            <div class="detail-item"><span class="detail-label">Category:</span> Church</div>
+            <div class="detail-item"><span class="detail-label">Organizer:</span> Parish of St. Catherine of Alexandria Cathedral</div>
+            <div class="detail-item">
+                <span class="detail-label">Pictures:</span>
+                <div class="photo-gallery">
+                    <img src="church/church14.jpg" class="gallery-img">
+                    <img src="church/church15.jpg" class="gallery-img">
+                </div>
+            </div>
+            <div class="detail-item"><span class="detail-label">Reflection:</span>
+                <p>The October 5 Mass was a beautiful moment of renewal and gratitude. Listening to the choir and joining the prayers reminded me that worship is not only about asking, but also about thanking God for His daily grace. It gave me peace of mind and the strength to continue being kind and faithful in everything I do.</p>
+            </div>
+        </div>
+
+        <!-- Church Entry 8 -->
+        <div class="journal-preview" onclick="toggleDetails('church8')">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="text-xl font-semibold gold-text">St. Catherine of Alexandria Sunday Mass</h4>
+                    <p class="text-sm text-gray-400">October 12, 2025</p>
+                </div>
+                <span class="text-gray-400 text-sm">5:00-6:00 AM</span>
+            </div>
+        </div>
+        <div id="church8" class="journal-details">
+            <div class="detail-item"><span class="detail-label">Category:</span> Church</div>
+            <div class="detail-item"><span class="detail-label">Organizer:</span> Parish of St. Catherine of Alexandria Cathedral</div>
+            <div class="detail-item">
+                <span class="detail-label">Pictures:</span>
+                <div class="photo-gallery">
+                    <img src="church/church16.jpg" class="gallery-img">
+                    <img src="church/church17.jpg" class="gallery-img">
+                </div>
+            </div>
+            <div class="detail-item"><span class="detail-label">Reflection:</span>
+                <p>The Mass on October 12 was uplifting and filled with reflection. The priest’s message about humility and compassion made me think about how I treat others and how I can be more Christlike in my actions. It inspired me to live my faith more sincerely and share God’s love through simple acts of goodness.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+			<!-- CHURCH DONE -->
+			
+				<div id="classroom-container" class="entry-container">
+				  <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Classroom Journal Entries</h3>
+
+				  <div class="journal-list">
+
+					<!-- Classroom Entry 1 -->
+					<div class="journal-preview" onclick="toggleDetails('class1')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">63rd Outstanding Sillimanian Awards ceremony</h4>
+						  <p class="text-sm text-gray-400">August 28, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">8:00-10:00 AM</span>
+					  </div>
+					</div>
+					<div id="class1" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Classroom</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Silliman University and the Silliman Alumni Association, Inc. (SAAI)</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="classroom/classroom1.jfif" class="gallery-img" alt="63rd Outstanding Sillimanian Awards ceremony">
+						  <img src="classroom/classroom2.jfif" class="gallery-img" alt="63rd Outstanding Sillimanian Awards ceremony">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>Attending this ceremony inspired me to pursue excellence with humility and service. Seeing alumni recognized for their contributions encouraged me to use my skills to create positive change.</p>
+					  </div>
+					</div>
+
+					<!-- Classroom Entry 2 -->
+					<div class="journal-preview" onclick="toggleDetails('class2')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Silliman University ROTC Ceremonial Parade and Review</h4>
+						  <p class="text-sm text-gray-400">August 26, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">6:00-10:00 AM</span>
+					  </div>
+					</div>
+					<div id="class2" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Classroom</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> SU Reserve Officers Training Corps (ROTC) Unit</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="classroom/classroom3.jpg" class="gallery-img" alt="ROTC Ceremonial Parade and Review">
+						  <img src="classroom/classroom4.jpg" class="gallery-img" alt="ROTC Ceremonial Parade and Review">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The ROTC Parade taught me the value of discipline, teamwork, and leadership. Observing the cadets’ dedication motivated me to apply the same discipline in academics and life.</p>
+					  </div>
+					</div>
+
+					<!-- Classroom Entry 3 -->
+					<div class="journal-preview" onclick="toggleDetails('class3')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Balik Talent Lectures 2025</h4>
+						  <p class="text-sm text-gray-400">August 28, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">2:00-5:00 PM</span>
+					  </div>
+					</div>
+					<div id="class3" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Classroom</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> College of Computer Studies</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="classroom/classroom5.jfif" class="gallery-img" alt="Balik Talent Lectures 2025">
+						  <img src="classroom/classroom6.jfif" class="gallery-img" alt="Balik Talent Lectures 2025">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>Listening to alumni share their expertise helped me appreciate the relevance of education beyond the classroom. Their journeys reminded me to stay passionate about learning and open to growth.</p>
+					  </div>
+					</div>
+
+					<!-- Classroom Entry 4 -->
+					<div class="journal-preview" onclick="toggleDetails('class4')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Himig ng Lahi Concert</h4>
+						  <p class="text-sm text-gray-400">September 19-20, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">7:00-10:00 PM</span>
+					  </div>
+					</div>
+					<div id="class4" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Classroom</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Divinity School Religion and Peace Studies Department</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="classroom/classroom7.jfif" class="gallery-img" alt="Himig ng Lahi Concert">
+						  <img src="classroom/classroom8.jfif" class="gallery-img" alt="Himig ng Lahi Concert">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The concert beautifully celebrated Filipino culture and unity through music. It reminded me of the power of art in expressing identity and connecting people.</p>
+					  </div>
+					</div>
+
+					<!-- Classroom Entry 5 -->
+					<div class="journal-preview" onclick="toggleDetails('class5')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Presentation of Sponsors 2025</h4>
+						  <p class="text-sm text-gray-400">October 4, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">2:00-5:00 PM</span>
+					  </div>
+					</div>
+					<div id="class5" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Classroom</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> SU Reserve Officers Training Corps (ROTC) Unit</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="classroom/classroom9.jpg" class="gallery-img" alt="Presentation of Sponsors 2025">
+						  <img src="classroom/classroom10.jpg" class="gallery-img" alt="Presentation of Sponsors 2025">
+
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>This event showed the pride and dedication of the ROTC community. It reminded me that recognition comes with responsibility to lead by example.</p>
+					  </div>
+					</div>
+
+					<!-- Classroom Entry 6 -->
+					<div class="journal-preview" onclick="toggleDetails('class6')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">All-University Academic Convocation</h4>
+						  <p class="text-sm text-gray-400">February 5, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">3:00 PM</span>
+					  </div>
+					</div>
+					<div id="class6" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Classroom</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Silliman University</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="classroom/classroom11.jfif" class="gallery-img" alt="All-University Academic Convocation">
+						  <img src="classroom/classroom12.jfif" class="gallery-img" alt="All-University Academic Convocation">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The convocation emphasized academic integrity and the purpose of education in shaping one’s character. It inspired me to learn not just for grades, but for personal and societal growth.</p>
+					  </div>
+					</div>
+
+					<!-- Classroom Entry 7 -->
+					<div class="journal-preview" onclick="toggleDetails('class7')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Corner Talks – American Corner</h4>
+						  <p class="text-sm text-gray-400">September 16, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">9:00–10:00 AM</span>
+					  </div>
+					</div>
+					<div id="class7" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Classroom</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Silliman University Library — Uytengsu Transformative Learning Center</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="classroom/classroom13.jpg" class="gallery-img" alt="Corner Talks – American Corner">
+						  <img src="classroom/classroom14.jpg" class="gallery-img" alt="Corner Talks – American Corner">
+						  <img src="classroom/classroom15.jpg" class="gallery-img" alt="Corner Talks – American Corner">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The discussion broadened my perspective on global awareness and communication. It encouraged me to think critically and engage meaningfully with different ideas.</p>
+					  </div>
+					</div>
+
+					<!-- Classroom Entry 8 -->
+					<div class="journal-preview" onclick="toggleDetails('class8')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Mental Health Caravan: Building A Mental Health Toolkit</h4>
+						  <p class="text-sm text-gray-400">October 8, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">2:00-4:00 PM</span>
+					  </div>
+					</div>
+					<div id="class8" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Classroom</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Guidance and Testing Division, Silliman University</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="classroom/classroom16.jfif" class="gallery-img" alt="Mental Health Caravan: Building A Mental Health Toolkit">
+						  <img src="classroom/classroom17.jfif" class="gallery-img" alt="Mental Health Caravan: Building A Mental Health Toolkit">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>This event taught me that mental health is as vital as physical health. It reminded me to take care of my well-being and to be compassionate toward others who may be struggling.</p>
+					  </div>
+					</div>
+
+				  </div>
+				</div>
+       
+            <!-- Court Journal Container -->
+				<div id="court-container" class="entry-container">
+				  <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Court Journal Entries</h3>
+
+				  <div class="journal-list">
+
+					<!-- Court Entry 1 -->
+					<div class="journal-preview" onclick="toggleDetails('court1')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">First Founders Day Dual Meet between Silliman University & Southville International School</h4>
+						  <p class="text-sm text-gray-400">August 18, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">1:00–5:00 PM</span>
+					  </div>
+					</div>
+					<div id="court1" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Court</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Athletics Director Dr. Dionesio V. Piñero II</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="court/court1.jfif" class="gallery-img" alt="First Founders Day Dual Meet">
+						  <img src="court/court2.jfif" class="gallery-img" alt="First Founders Day Dual Meet">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>Watching athletes compete fostered school spirit and teamwork. It reminded me that sports not only build physical strength but also discipline and camaraderie.</p>
+					  </div>
+					</div>
+
+					<!-- Court Entry 2 -->
+					<div class="journal-preview" onclick="toggleDetails('court2')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">NORSAA Inter-School Sports Tournament – Basketball</h4>
+						  <p class="text-sm text-gray-400">September 27, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">8:00–10:00 AM</span>
+					  </div>
+					</div>
+					<div id="court2" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Court</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Romart Ramos</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="court/court3.jpg" class="gallery-img" alt="NORSAA Basketball Tournament">
+						  <img src="court/court4.jpg" class="gallery-img" alt="NORSAA Basketball Tournament">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>Watching the NORSAA Basketball Tournament was an exciting and inspiring experience. The players displayed great teamwork, discipline, and determination throughout the game. It reminded me that true sportsmanship means giving your best effort while showing respect to both teammates and opponents. The event strengthened my appreciation for unity and perseverance in competition.</p>
+					  </div>
+					</div>
+
+					<!-- Court Entry 3 -->
+					<div class="journal-preview" onclick="toggleDetails('court3')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">NORSAA Inter-School Sports Tournament – Volleyball</h4>
+						  <p class="text-sm text-gray-400">September 28, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">10:00–12:00 NN</span>
+					  </div>
+					</div>
+					<div id="court3" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Court</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Roger Banzuela</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="court/court5.jpg" class="gallery-img" alt="NORSAA Volleyball Tournament">
+						  <img src="court/court6.jpg" class="gallery-img" alt="NORSAA Volleyball Tournament">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The NORSAA Volleyball Tournament showcased not only athletic skill but also strong cooperation among the players. Each team’s effort to communicate and support one another highlighted the importance of teamwork and trust. The energy of the crowd and the spirit of fair play made the experience uplifting. It reminded me that success is achieved when we work together and maintain humility in both victory and defeat.</p>
+					  </div>
+					</div>
+
+					<!-- Court Entry 4 -->
+					<div class="journal-preview" onclick="toggleDetails('court4')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Pansiklaban 2025: SHS Basketball Tournament</h4>
+						  <p class="text-sm text-gray-400">October 23, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">2:00–5:00 PM</span>
+					  </div>
+					</div>
+					<div id="court4" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Court</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Silliman University Senior High School Student Council</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="court/court7.jfif" class="gallery-img" alt="Pansiklaban 2025 SHS Basketball Tournament">
+						  <img src="court/court8.jfif" class="gallery-img" alt="Pansiklaban 2025 SHS Basketball Tournament">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The Pansiklaban Basketball Tournament was filled with excitement and school pride. I admired how the teams gave their all while keeping a friendly and respectful attitude toward one another. It reminded me that winning is not just about the score, but about the effort, unity, and integrity shown on the court. The event inspired me to value teamwork and sportsmanship in everything I do.</p>
+					  </div>
+					</div>
+
+					<!-- Court Entry 5 -->
+					<div class="journal-preview" onclick="toggleDetails('court5')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Pansiklaban 2025: SHS Soccer Tournament</h4>
+						  <p class="text-sm text-gray-400">October 24, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">2:00–5:00 PM</span>
+					  </div>
+					</div>
+					<div id="court5" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Court</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Silliman University Senior High School Student Council</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="court/court9.jfif" class="gallery-img" alt="Pansiklaban 2025 SHS Soccer Tournament">
+						  <img src="court/court10.jfif" class="gallery-img" alt="Pansiklaban 2025 SHS Soccer Tournament">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The Pansiklaban Soccer Tournament was an energetic and engaging event that demonstrated the power of teamwork and strategy. Watching the players coordinate and encourage one another throughout the match was inspiring. It reminded me that success comes from collaboration, communication, and a positive mindset. The tournament truly embodied the spirit of friendly competition and community.</p>
+					  </div>
+					</div>
+
+					<!-- Court Entry 6 -->
+					<div class="journal-preview" onclick="toggleDetails('court6')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Billiards Tournament</h4>
+						  <p class="text-sm text-gray-400">October 22, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">4:00–6:00 PM</span>
+					  </div>
+					</div>
+					<div id="court6" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Court</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Jay Madhew C. Dael</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="court/court11.jfif" class="gallery-img" alt="Billiards Tournament">
+						  <img src="court/court12.jfif" class="gallery-img" alt="Billiards Tournament">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>This event taught me focus, patience, and precision. Observing the players reminded me that mastery comes from consistent practice and composure under pressure.</p>
+					  </div>
+					</div>
+
+					<!-- Court Entry 7 -->
+					<div class="journal-preview" onclick="toggleDetails('court7')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">1st Mikoy Reyes Invitational Boxing Tournament</h4>
+						  <p class="text-sm text-gray-400">July 11, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">6:00–10:00 PM</span>
+					  </div>
+					</div>
+					<div id="court7" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Court</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Guihulngan City Local Government</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="court/court13.png" class="gallery-img" alt="1st Mikoy Reyes Invitational Boxing Tournament">
+						  <img src="court/court14.png" class="gallery-img" alt="1st Mikoy Reyes Invitational Boxing Tournament">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The boxing tournament was intense and inspiring. It made me appreciate athletes’ courage, discipline, and resilience in facing challenges.</p>
+					  </div>
+					</div>
+
+					<!-- Court Entry 8 -->
+					<div class="journal-preview" onclick="toggleDetails('court8')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Badminton Tournament</h4>
+						  <p class="text-sm text-gray-400">October 17, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">2:30 PM</span>
+					  </div>
+					</div>
+					<div id="court8" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Court</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Vcpierre D. Calunsag</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="court/court15.jpg" class="gallery-img" alt="Badminton Tournament">
+						  <img src="court/court16.jpg" class="gallery-img" alt="Badminton Tournament">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The badminton event reminded me of the joy of friendly competition and the importance of maintaining a healthy balance between mind and body.</p>
+					  </div>
+					</div>
+
+				  </div>
+				</div>
+
+				<!-- Cultural Journal Container -->
+				<div id="cultural-container" class="entry-container">
+				  <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Cultural Journal Entries</h3>
+				  
+				  <div class="journal-list">
+
+					<!-- Cultural Entry 1 -->
+					<div class="journal-preview" onclick="toggleDetails('cult1')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Buwan ng Wika Celebration (SHS)</h4>
+						  <p class="text-sm text-gray-400">August 13, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">1:00–5:00 PM</span>
+					  </div>
+					</div>
+					<div id="cult1" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Cultural</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Filipino Department and Student Organizations</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="culture/culture1.jfif" class="gallery-img" alt="Buwan ng Wika Celebration">
+						  <img src="culture/culture2.jfif" class="gallery-img" alt="Buwan ng Wika Celebration">
+						  <img src="culture/culture3.jfif" class="gallery-img" alt="Buwan ng Wika Celebration">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The Buwan ng Wika celebration reminded me of the richness of our Filipino culture and language. It was inspiring to see students express their creativity and love for the nation through performances and exhibits.</p>
+					  </div>
+					</div>
+
+					<!-- Cultural Entry 2 -->
+					<div class="journal-preview" onclick="toggleDetails('cult2')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">79th Miss Silliman</h4>
+						  <p class="text-sm text-gray-400">August 26, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">6:30 PM</span>
+					  </div>
+					</div>
+					<div id="cult2" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Cultural</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Miss Silliman Committee (MSC)</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="culture/culture4.jfif" class="gallery-img" alt="Miss Silliman Pageant">
+						  <img src="culture/culture5.jfif" class="gallery-img" alt="Miss Silliman Pageant">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The Miss Silliman pageant highlighted not just beauty but intelligence and purpose. Watching the candidates represent Silliman ideals inspired me to pursue excellence with grace and humility.</p>
+					  </div>
+					</div>
+
+					<!-- Cultural Entry 3 -->
+					<div class="journal-preview" onclick="toggleDetails('cult3')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Parada Sillimaniana 2025</h4>
+						  <p class="text-sm text-gray-400">August 27, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">1:30 PM</span>
+					  </div>
+					</div>
+					<div id="cult3" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Cultural</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Silliman University</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="culture/culture6.png" class="gallery-img" alt="Buwan ng Wika Celebration">
+						  <img src="culture/culture7.png" class="gallery-img" alt="Buwan ng Wika Celebration">
+						  <img src="culture/culture8.jpg" class="gallery-img" alt="Buwan ng Wika Celebration">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>Parada Sillimaniana showcased the unity and pride of the Silliman community. It reminded me of the importance of tradition, identity, and school spirit in shaping one’s sense of belonging.</p>
+					  </div>
+					</div>
+
+					<!-- Cultural Entry 4 -->
+					<div class="journal-preview" onclick="toggleDetails('cult4')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">(CCS) Acquaintance Party</h4>
+						  <p class="text-sm text-gray-400">August 2, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">6:00 PM</span>
+					  </div>
+					</div>
+					<div id="cult4" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Cultural</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> College of Computer Studies</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="culture/culture9.png" class="gallery-img" alt="CCS Acquaintance Party">
+						  <img src="culture/culture10.jpg" class="gallery-img" alt="CCS Acquaintance Party">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The Acquaintance Party was a fun and memorable night that allowed students to connect and build friendships. It helped foster a stronger sense of community within the college.</p>
+					  </div>
+					</div>
+
+					<!-- Cultural Entry 5 -->
+					<div class="journal-preview" onclick="toggleDetails('cult5')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Buglasan Festival 2025</h4>
+						  <p class="text-sm text-gray-400">October 26, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">6:00–11:00 PM</span>
+					  </div>
+					</div>
+					<div id="cult5" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Cultural</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Provincial Government of Negros Oriental</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="culture/culture11.jfif" class="gallery-img" alt="Buglasan Festival 2025">
+						  <img src="culture/culture12.jfif" class="gallery-img" alt="Buglasan Festival 2025">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>Buglasan Festival celebrated the province’s diverse culture and talent. The performances and exhibits made me appreciate the creativity and traditions of Negros Oriental even more.</p>
+					  </div>
+					</div>
+
+				  </div>
+				</div>
+
+				<!-- Community Journal Container -->
+				<div id="community-container" class="entry-container">
+				  <h3 class="text-2xl font-bold mb-6 gold-text pl-2 border-l-4 border-amber-800">Community Journal Entries</h3>
+				  
+				  <div class="journal-list">
+
+					<!-- Community Entry 1 -->
+					<div class="journal-preview" onclick="toggleDetails('comm1')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Feeding Program</h4>
+						  <p class="text-sm text-gray-400">September 24, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">2:30 PM</span>
+					  </div>
+					</div>
+					<div id="comm1" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Community</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Jay Madhew C. Dael</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="community/community1.png" class="gallery-img" alt="Feeding Program">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>The feeding program allowed me to see the importance of compassion and service. It was heartwarming to witness how small acts of kindness can make a big difference in others’ lives.</p>
+					  </div>
+					</div>
+
+					<!-- Community Entry 2 -->
+					<div class="journal-preview" onclick="toggleDetails('comm2')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Call for Donations</h4>
+						  <p class="text-sm text-gray-400">October 3, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">4:00 PM</span>
+					  </div>
+					</div>
+					<div id="comm2" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Community</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> Office of the Vice President for Development / Continuing Calamity Response Program</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="community/community2.jfif" class="gallery-img" alt="Call for Donations">
+						  <img src="community/community3.jfif" class="gallery-img" alt="Call for Donations">
+				    	  <img src="community/community4.jpg" class="gallery-img" alt="Call for Donations">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>This donation drive reminded me that even in times of crisis, unity and generosity bring hope. It felt rewarding to be part of a collective effort to help those in need.</p>
+					  </div>
+					</div>
+
+					<!-- Community Entry 3 -->
+					<div class="journal-preview" onclick="toggleDetails('comm3')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Sto. Niño Orphanage White Gift</h4>
+						  <p class="text-sm text-gray-400">October 22, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">1:00 PM</span>
+					  </div>
+					</div>
+					<div id="comm3" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Community</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> College of Computer Studies</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="community/community5.jfif" class="gallery-img" alt="Sto. Niño Orphanage White Gift">
+						  <img src="community/community6.jfif" class="gallery-img" alt="Sto. Niño Orphanage White Gift">
+						  <img src="community/community7.jfif" class="gallery-img" alt="Sto. Niño Orphanage White Gift">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>Sto. Niño Orphanage reminded me of the joy found in giving. The smiles of the children showed that even simple gifts can bring warmth and love.</p>
+					  </div>
+					</div>
+
+					<!-- Community Entry 4 -->
+					<div class="journal-preview" onclick="toggleDetails('comm4')">
+					  <div class="flex justify-between items-center">
+						<div>
+						  <h4 class="text-xl font-semibold gold-text">Sealed with Sugar Pop-Up for a Cause</h4>
+						  <p class="text-sm text-gray-400">October 14, 2025</p>
+						</div>
+						<span class="text-gray-400 text-sm">3:00 PM</span>
+					  </div>
+					</div>
+					<div id="comm4" class="journal-details">
+					  <div class="detail-item"><span class="detail-label">Category:</span> Community</div>
+					  <div class="detail-item"><span class="detail-label">Organizer:</span> ROTC Corps of Sponsors of Silliman University</div>
+					  <div class="detail-item">
+						<span class="detail-label">Pictures:</span>
+						<div class="photo-gallery">
+						  <img src="community/community8.jpg" class="gallery-img" alt="Sealed with Sugar Pop-Up for a Cause">
+						  <img src="community/community9.png" class="gallery-img" alt="Sealed with Sugar Pop-Up for a Cause">
+						</div>
+					  </div>
+					  <div class="detail-item"><span class="detail-label">Reflection:</span>
+						<p>This fundraising event showed how creativity and service can come together for a meaningful cause. It was inspiring to see young leaders organize for the benefit of others.</p>
+					  </div>
+					</div>
+
+				  </div>
+				</div>
+
         </section>
 
         <!-- Advocacy Section -->
@@ -798,21 +1201,16 @@ body {
             <h2 class="text-3xl font-bold mb-8 gold-text border-b border-black pb-2">Sacred Advocacy</h2>
             <div class="flex flex-col md:flex-row gap-8 items-center">
                 <div class="md:w-1/2">
-                    <img src="https://placehold.co/600x400/222/ccc/?text=Advocacy&font=cinzel" alt="Hands forming a heart shape around a glowing cross, symbolizing faith-based service" class="rounded-lg shadow-xl w-full">
+                    <img src="https://placehold.co/600x400/222/ccc/?text=Advocacy" alt="" class="rounded-lg shadow-xl w-full">
                 </div>
                 <div class="md:w-1/2">
                     <div class="bg-gray-600 bg-opacity-20 rounded-lg p-6 border border-black">
                         <h3 class="text-2xl font-bold mb-4 gold-text">Faith in Action Initiative</h3>
-                        <p class="mb-4">
-                            Our sacred advocacy focuses on bridging spiritual principles with practical community service.
-                        </p>
-                        <p class="mb-6">
-                            "Faith by itself, if it is not accompanied by action, is dead." - James 2:17
-                        </p>
+                        <p class="mb-4">Our sacred advocacy focuses on bridging spiritual principles with practical community service.</p>
+                        <p class="mb-6">"Faith by itself, if it is not accompanied by action, is dead." - James 2:17</p>
                         <div class="flex flex-wrap gap-4">
                             <div class="bg-gray-600 bg-opacity-30 px-4 py-2 rounded-md">
-                                <span class="	">Status</span>
-                                <span>Coming Soon</span>
+                                <span>Status:</span> Coming Soon
                             </div>
                             <div class="bg-gray-600 bg-opacity-30 px-4 py-2 rounded-md">
                                 <span class="block text-xs gold-text">Discussion</span>
@@ -825,64 +1223,44 @@ body {
         </section>
     </main>
 
-<script>
-    // Journal category selection
-    function showCategory(button, category) {
-        document.querySelectorAll('.entry-container').forEach(container => {
-            container.classList.remove('active');
-        });
-        document.getElementById(`${category}-container`).classList.add('active');
+    <!-- JavaScript -->
+    <script>
+        function showCategory(button, category) {
+            document.querySelectorAll('.entry-container').forEach(c => c.classList.remove('active'));
+            document.getElementById(`${category}-container`).classList.add('active');
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+            document.querySelectorAll('.journal-details').forEach(d => d.classList.remove('active'));
+        }
 
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        button.classList.add('active');
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            details.classList.toggle('active');
+            details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
 
-        document.querySelectorAll('.journal-details').forEach(detail => {
-            detail.classList.remove('active');
-        });
-    }
-
-    // Journal entry details toggle
-    function toggleDetails(id) {
-        const details = document.getElementById(id);
-        details.classList.toggle('active');
-        details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    // ✅ Zoom image on click (enhanced for full zoom)
-    window.onload = function () {
-        document.querySelectorAll('.gallery-img').forEach(img => {
-            img.addEventListener('click', function () {
-                const modal = document.getElementById('imageZoomModal');
-                const zoomed = document.getElementById('zoomedImage');
-                zoomed.src = this.src;
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
+        window.onload = function () {
+            document.querySelectorAll('.gallery-img').forEach(img => {
+                img.addEventListener('click', function () {
+                    const modal = document.getElementById('imageZoomModal');
+                    const zoomed = document.getElementById('zoomedImage');
+                    zoomed.src = this.src;
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
             });
-        });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeImageModal(); });
+        };
 
-        // ✅ ESC to close modal
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                closeImageModal();
-            }
-        });
-    };
+        function closeImageModal() {
+            document.getElementById('imageZoomModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    </script>
 
-    // Close zoom modal
-    function closeImageModal() {
-        document.getElementById('imageZoomModal').style.display = 'none';
-        document.body.style.overflow = ''; // Re-enable scroll
-    }
-</script>
-
-
-
-<div id="imageZoomModal" class="image-modal" onclick="closeImageModal()">
-    <img id="zoomedImage" alt="Zoomed Image" />
-</div>
-
+    <div id="imageZoomModal" class="image-modal" onclick="closeImageModal()">
+        <img id="zoomedImage" alt="Zoomed Image" />
+    </div>
 </body>
 </html>
 
